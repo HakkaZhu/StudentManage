@@ -95,7 +95,7 @@ public class DBUtil {
 	// 查
 	public static ResultSet executeQuery(String sql, Object[] params) {
 		try {
-			createPreparedStatement(sql, params);
+			pstmt = createPreparedStatement(sql, params);
 			rs = pstmt.executeQuery();
 
 		} catch (SQLException e) {
