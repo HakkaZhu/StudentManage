@@ -13,7 +13,7 @@
 		年龄<input type="text" name="uage"/><br/>
 		地址<input type="text" name="uaddress"/><br/>
 		<input type="submit" value="新增"/>
-		<a href="queryAllStudentServlet">返回</a>
+		<a href="getStudentsByPageServlet">返回</a>
 	</form>
 </body>
 </html>

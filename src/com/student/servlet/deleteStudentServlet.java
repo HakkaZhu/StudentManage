@@ -22,7 +22,7 @@ public class deleteStudentServlet extends HttpServlet {
 		}else {
 			request.setAttribute("result", "删除失败");
 		}
-		request.getRequestDispatcher("queryAllStudentServlet").forward(request, response);
+		request.getRequestDispatcher("getStudentsByPageServlet").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

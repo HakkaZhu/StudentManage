@@ -19,6 +19,6 @@
 	地址<input type="text" name="uaddress" value="<%=student.getAddress()%>"/><br/>
 	<input type="submit" value="更新"/>
 	</form>
-	<a href="queryAllStudentServlet">返回</a>
+	<a href="getStudentsByPageServlet">返回</a>
 </body>
 </html>

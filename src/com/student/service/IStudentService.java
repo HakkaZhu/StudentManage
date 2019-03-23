@@ -21,4 +21,10 @@ public interface IStudentService {
 	//修改学生信息
 	public boolean updateStudent(Student student); 
 	
+	//查询数据总量
+	public int getTotalStudents();
+	
+	//查询当前页面数据集合
+	public List<Student> getStudentsByPage(int currentPage,int pageSize);
+	
 }

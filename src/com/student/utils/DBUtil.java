@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import com.student.entity.Student;
 
@@ -23,18 +24,6 @@ public class DBUtil {
 		
 			Class.forName("com.mysql.jdbc.Driver");
 			return  DriverManager.getConnection(url, user, password);
-//		try {
-//			Class.forName("com.mysql.jdbc.Driver");
-//			connection = DriverManager.getConnection(url, user, password);
-//		} catch (ClassNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch(SQLException e) {
-//			e.printStackTrace();
-//		} catch(Exception e) {
-//			e.printStackTrace();
-//		}
-//		return connection;
 	}
 	
 //	创建数据库语句
@@ -103,22 +92,27 @@ public class DBUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
-		finally {
-//			getAllClose(null, pstmt,connection );
-//			try {
-//				if (rs != null)
-//					rs.close();
-//				if (pstmt != null)
-//					pstmt.close();
-//				if (connection != null)
-//					connection.close();
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-		}
 		return rs;
 	}
+	
+	//查询数据总量
+	public static int getTotalDatas(String sql) {
+		int count = -1;
+		pstmt = createPreparedStatement(sql, null);
+		try {
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			getAllClose(rs, pstmt, connection);
+		}
+		return count;
+	}
+	
 
 }

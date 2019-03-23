@@ -24,9 +24,9 @@ public class updateStudentServlet extends HttpServlet {
 		boolean result = stuService.updateStudent(student);
 		if(result) {
 			request.setAttribute("result", "修改成功");
-			request.getRequestDispatcher("queryAllStudentServlet").forward(request, response);
+			request.getRequestDispatcher("getStudentsByPageServlet").forward(request, response);
 		}else {
-			request.getRequestDispatcher("queryAllStudentServlet").forward(request, response);
+			request.getRequestDispatcher("getStudentsByPageServlet").forward(request, response);
 			
 		}
 		

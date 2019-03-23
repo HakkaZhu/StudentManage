@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.student.dao.IStudentDao;
 import com.student.dao.Impl.StudentDaoImpl;
+import com.student.entity.Pages;
 import com.student.entity.Student;
 import com.student.service.IStudentService;
+import com.student.utils.DBUtil;
 
 
 public class StudentServiceImpl implements IStudentService {
@@ -38,6 +40,14 @@ public class StudentServiceImpl implements IStudentService {
 			return true;
 		else
 			return false;
+	}
+	@Override
+	public int getTotalStudents() {
+		return stu.getTotalStudents();
+	}
+	@Override
+	public List<Student> getStudentsByPage(int currentPage,int pageSize) {
+		return stu.getStudentsByPage(currentPage, pageSize);
 	}
 	
 }
